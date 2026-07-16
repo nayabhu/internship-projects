@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Landing Page</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f7fb;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,black);
+color:white;
+padding:80px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.6;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 30px;
+background:white;
+color:#0077ff;
+text-decoration:none;
+font-weight:bold;
+border-radius:30px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0077ff;
+color:white;
+transform:translateY(-5px);
+}
+
+.hero-image img{
+width:350px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+.features{
+
+padding:80px 10%;
+
+text-align:center;
+
+}
+
+.features h2{
+
+margin-bottom:40px;
+
+font-size:36px;
+
+}
+
+.cards{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+.card{
+
+background:white;
+
+padding:30px;
+
+width:280px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+transition:.4s;
+
+opacity:0;
+
+transform:translateY(80px);
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 10px 20px rgba(0,0,0,.25);
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+}
+
+.card p{
+
+line-height:1.6;
+
+}
+
+.card.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+transition:1s;
+
+}
+
+.cta{
+
+padding:80px 10%;
+
+text-align:center;
+
+background:lightblue;
+
+color:white;
+
+}
+
+.cta h2{
+
+margin-bottom:20px;
+
+font-size:38px;
+
+}
+
+.cta p{
+
+margin-bottom:30px;
+
+font-size:18px;
+
+}
+
+footer{
+
+background:#222;
+
+color:white;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.hero-image{
+
+margin-top:40px;
+
+}
+
+.hero-image img{
+
+width:250px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="hero-text">
+
+<h1>Launch Your Startup Faster</h1>
+
+<p>
+Build modern websites with beautiful animations,
+responsive layouts, and smooth user experience.
+</p>
+
+<a href="#features" class="btn">
+Get Started
+</a>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
+
+</div>
+
+</header>
+
+<section class="features" id="features">
+
+<h2>Our Features</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Fast Performance</h3>
+
+<p>
+Optimized code ensures fast loading and excellent performance.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Responsive Design</h3>
+
+<p>
+Looks perfect on desktop, tablet, and mobile devices.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Easy Customization</h3>
+
+<p>
+Modify colors, fonts, and layouts effortlessly.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Ready to Grow?</h2>
+
+<p>
+Join thousands of users building amazing projects.
+</p>
+
+<a href="#" class="btn">
+Start Now
+</a>
+
+</section>
+
+<footer>
+
+<p>© 2026 Startup Landing Page</p>
+
+</footer>
+
+<script>
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},{
+    threshold:0.3
+});
+
+cards.forEach(card=>{
+    observer.observe(card);
+});
+
+</script>
+</body>
+</html>
