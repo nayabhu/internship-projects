@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef2f7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.card{
+    background:#fff;
+    width:350px;
+    max-width:500px;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.profile-img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+.role{
+    color:#666;
+    margin-top:8px;
+}
+
+.bio{
+    margin:25px 0;
+}
+
+.bio h2{
+    margin-bottom:10px;
+}
+
+.bio p{
+    line-height:1.6;
+    color:#444;
+}
+
+footer{
+    display:flex;
+    justify-content:space-around;
+}
+
+footer a{
+    text-decoration:none;
+    color:#0d6efd;
+    font-weight:bold;
+}
+
+footer a:hover{
+    color:#084298;
+}
+
+@media(max-width:500px){
+
+.card{
+    width:350px;
+}
+
+footer{
+    flex-direction:column;
+    gap:12px;
+}
+
+}
+</style>
+<body>
+
+<main class="container">
+    <article class="card">
+
+        <header>
+            <img src="profile.jpeg" alt="Profile Photo" class="profile-img">
+            <h1>Nayab Shehzadi</h1>
+            <p class="role">Software Engineering Student</p>
+        </header>
+
+        <section class="bio">
+            <h2>About Me</h2>
+            <p>
+                Passionate software engineering student with an interest in
+                web development, Java, react, and AI. I enjoy building
+                responsive applications and continuously improving my skills.
+            </p>
+        </section>
+
+        <footer>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+        </footer>
+
+    </article>
+</main>
+
+</body>
+</html>
