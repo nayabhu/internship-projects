@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexbox & Grid Pricing Playground</title>
+  <style>
+    :root {
+      --ink: #17213a;
+      --muted: #65708a;
+      --purple: #6848dc;
+      --purple-light: #f0edff;
+      --line: #dfe4ef;
+      --page: #f6f7fb;
+      --card: #fff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 2.5rem 1rem;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .page-header, .layout-demo, .page-footer, .comparison {
+      width: min(100%, 1050px);
+      margin-inline: auto;
+    }
+
+    .page-header { text-align: center; margin-bottom: 2.5rem; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+    h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.2rem); }
+    .page-header p { margin: 0.75rem auto 0; max-width: 620px; color: var(--muted); line-height: 1.6; }
+
+    .layout-demo { margin-bottom: 3.5rem; }
+    .demo-heading { margin-bottom: 1.2rem; }
+    .demo-heading h2 { margin: 0; font-size: 1.65rem; }
+    .demo-heading p { margin: 0.35rem 0 0; color: var(--muted); }
+
+    .pricing-flex {
+      display: flex;
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .plan {
+      position: relative;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      min-width: 0;
+      padding: 1.7rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: 0 8px 20px rgb(23 33 58 / 7%);
+    }
+
+    .plan.featured { border: 2px solid var(--purple); }
+    .tag {
+      position: absolute;
+      top: -0.85rem;
+      right: 1.2rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: var(--purple);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .plan h3 { margin: 0; font-size: 1.45rem; }
+    .description { min-height: 3rem; margin: 0.65rem 0 1.25rem; color: var(--muted); line-height: 1.5; }
+    .price { margin: 0; font-size: 2.15rem; font-weight: 800; }
+    .price span { color: var(--muted); font-size: 0.9rem; font-weight: 400; }
+    .features { margin: 1.4rem 0; padding: 0; list-style: none; }
+    .features li { margin-bottom: 0.7rem; color: #424d65; }
+    .features li::before { content: "✓"; margin-right: 0.55rem; color: var(--purple); font-weight: 800; }
+    .plan a {
+      display: block;
+      margin-top: auto;
+      padding: 0.8rem;
+      border: 1px solid var(--purple);
+      border-radius: 9px;
+      color: var(--purple);
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+    }
+    .featured a, .plan a:hover { background: var(--purple); color: #fff; }
+
+    .comparison {
+      padding: 1.5rem;
+      border-left: 5px solid var(--purple);
+      border-radius: 0 12px 12px 0;
+      background: var(--purple-light);
+    }
+    .comparison h2 { margin: 0 0 0.5rem; font-size: 1.4rem; }
+    .comparison p { margin: 0; color: #3e4760; line-height: 1.65; }
+    .page-footer { margin-top: 2.5rem; color: var(--muted); font-size: 0.9rem; text-align: center; }
+
+    @media (max-width: 600px) {
+      .pricing-flex { flex-direction: column; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .plan { padding: 1.45rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Pricing Layout Playground</h1>
+    <p>The same three-plan pricing section, built first with Flexbox and then with CSS Grid.</p>
+  </header>
+
+  <main>
+    <section class="layout-demo" aria-labelledby="flex-heading">
+      <header class="demo-heading">
+        <h2 id="flex-heading">Version 1: Flexbox</h2>
+        <p>Uses <code>display: flex</code> to arrange the pricing cards.</p>
+      </header>
+      <div class="pricing-flex">
+        <article class="plan"><h3>Starter</h3><p class="description">For individuals exploring new ideas.</p><p class="price">$9 <span>/ month</span></p><ul class="features"><li>1 project</li><li>Basic analytics</li><li>Email support</li></ul><a href="#starter-flex">Choose Starter</a></article>
+        <article class="plan featured"><span class="tag">Most popular</span><h3>Professional</h3><p class="description">For growing teams that need more.</p><p class="price">$19 <span>/ month</span></p><ul class="features"><li>10 projects</li><li>Advanced analytics</li><li>Priority support</li></ul><a href="#professional-flex">Choose Professional</a></article>
+        <article class="plan"><h3>Business</h3><p class="description">For established teams at scale.</p><p class="price">$39 <span>/ month</span></p><ul class="features"><li>Unlimited projects</li><li>Team dashboard</li><li>24/7 support</li></ul><a href="#business-flex">Choose Business</a></article>
+      </div>
+    </section>
+
+    <section class="layout-demo" aria-labelledby="grid-heading">
+      <header class="demo-heading">
+        <h2 id="grid-heading">Version 2: CSS Grid</h2>
+        <p>Uses <code>display: grid</code> and three equal columns for the identical layout.</p>
+      </header>
+      <div class="pricing-grid">
+        <article class="plan"><h3>Starter</h3><p class="description">For individuals exploring new ideas.</p><p class="price">$9 <span>/ month</span></p><ul class="features"><li>1 project</li><li>Basic analytics</li><li>Email support</li></ul><a href="#starter-grid">Choose Starter</a></article>
+        <article class="plan featured"><span class="tag">Most popular</span><h3>Professional</h3><p class="description">For growing teams that need more.</p><p class="price">$19 <span>/ month</span></p><ul class="features"><li>10 projects</li><li>Advanced analytics</li><li>Priority support</li></ul><a href="#professional-grid">Choose Professional</a></article>
+        <article class="plan"><h3>Business</h3><p class="description">For established teams at scale.</p><p class="price">$39 <span>/ month</span></p><ul class="features"><li>Unlimited projects</li><li>Team dashboard</li><li>24/7 support</li></ul><a href="#business-grid">Choose Business</a></article>
+      </div>
+    </section>
+
+    <section class="comparison" aria-labelledby="comparison-heading">
+      <h2 id="comparison-heading">Flexbox vs Grid comparison</h2>
+      <p>Flexbox was straightforward for placing these cards in one horizontal row and then changing that row to a column on small screens. Grid made the equal three-column structure more explicit with one <code>grid-template-columns</code> rule, so it felt easier to control the overall layout. For a one-dimensional row or column, I would choose Flexbox; for layouts with clear rows and columns, Grid is usually easier to read and maintain.</p>
+    </section>
+  </main>
+
+  <footer class="page-footer">Resize the browser below 600px to view the responsive single-column layouts.</footer>
+</body>
+</html>
