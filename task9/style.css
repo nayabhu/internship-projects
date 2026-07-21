@@ -1,0 +1,376 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:#1f2937;
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.navbar h2{
+    font-size:28px;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#fff;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#38bdf8;
+}
+
+/* ===========================
+   Hero
+=========================== */
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    color:#fff;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+/* ===========================
+   Filters
+=========================== */
+
+.filters{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:30px;
+    flex-wrap:wrap;
+}
+
+.filters input,
+.filters select{
+
+    padding:12px;
+    width:260px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+
+}
+
+/* ===========================
+   Products
+=========================== */
+
+.products{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    padding:40px 8%;
+
+}
+
+/* Product Card */
+
+.card{
+
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+    animation:fadeUp .5s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card img{
+
+    width:100%;
+    height:220px;
+    object-fit:contain;
+
+}
+
+.card h3{
+
+    margin:15px 0 10px;
+
+}
+
+.card p{
+
+    margin-bottom:15px;
+
+}
+
+.price{
+
+    color:#2563eb;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
+
+}
+
+/* Buttons */
+
+.btn{
+
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ===========================
+   Animations
+=========================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+.navbar{
+
+    flex-direction:column;
+    gap:15px;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.products{
+
+    grid-template-columns:1fr;
+
+}
+
+.filters{
+
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.filters input,
+.filters select{
+
+    width:100%;
+
+}
+
+}
+/* Toast */
+
+.toast{
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    background:#16a34a;
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:8px;
+
+    animation:fadeUp .3s;
+
+    z-index:999;
+
+}
+.cart-page{
+
+    padding:50px 8%;
+
+}
+
+#cart-items{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    margin-top:30px;
+
+}
+.quantity{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin:15px 0;
+
+}
+
+.quantity .btn{
+
+    width:45px;
+
+}
+.card{
+
+    transition:.3s ease;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px) scale(1.02);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+
+}
+.btn{
+
+    transition:.3s ease;
+
+}
+
+.btn:hover{
+
+    transform:scale(1.05);
+
+}
+.filters input,
+.filters select{
+
+    transition:.3s;
+
+}
+
+.filters input:focus,
+.filters select:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 10px rgba(37,99,235,.3);
+
+}
+.toast{
+
+    position:fixed;
+
+    right:20px;
+
+    top:20px;
+
+    background:#16a34a;
+
+    color:white;
+
+    padding:15px 20px;
+
+    border-radius:8px;
+
+    animation:slideIn .4s;
+
+    z-index:999;
+
+}
+
+@keyframes slideIn{
+
+from{
+
+opacity:0;
+
+transform:translateX(100px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}

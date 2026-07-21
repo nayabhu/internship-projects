@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <h2>MiniStore</h2>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="cart.html">
+                Cart (<span id="cart-count">0</span>)
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <h1>Welcome to MiniStore</h1>
+
+        <p>
+            Shop the latest products with the best prices.
+        </p>
+
+    </section>
+
+    <!-- Search -->
+
+    <section class="filters">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search products..."
+        >
+
+        <select id="category">
+
+            <option value="all">All Categories</option>
+
+        </select>
+
+    </section>
+
+    <!-- Products -->
+
+    <section>
+
+        <div id="products" class="products"></div>
+
+    </section>
+
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
